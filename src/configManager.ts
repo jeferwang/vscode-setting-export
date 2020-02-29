@@ -110,17 +110,18 @@ export const importSetting = async function (context: ExtensionContext): Promise
     }
     const data: IJsonData = JSON.parse(dataStr);
     if (data["settings.json"]) {
-        restoreUserSettings(context, data["settings.json"]);
+        await restoreUserSettings(context, data["settings.json"]);
     }
     if (data["keybindings.json"]) {
-        restoreUserSettings(context, data["keybindings.json"]);
+        await restoreUserSettings(context, data["keybindings.json"]);
     }
     if (data.snippets) {
-        restoreSnippets(context, data.snippets);
+        await restoreSnippets(context, data.snippets);
     }
     if (data["extensionList"]) {
-        restoreExtensionList(context, data["extensionList"]);
+        await restoreExtensionList(context, data["extensionList"]);
     }
+    vscode.commands.executeCommand("workbench.action.reloadWindow");
     return true;
 };
 
