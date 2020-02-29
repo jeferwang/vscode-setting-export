@@ -113,7 +113,7 @@ export const importSetting = async function (context: ExtensionContext): Promise
         await restoreUserSettings(context, data["settings.json"]);
     }
     if (data["keybindings.json"]) {
-        await restoreUserSettings(context, data["keybindings.json"]);
+        await restoreKeyBinding(context, data["keybindings.json"]);
     }
     if (data.snippets) {
         await restoreSnippets(context, data.snippets);
