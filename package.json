@@ -1,7 +1,11 @@
 {
-	"name": "code-setting-export",
-	"displayName": "code-setting-export",
+	"name": "vscode-setting-export",
+	"displayName": "Vscode Setting Export",
 	"description": "Export Vscode Setting and Extension List",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jeferwang/vscode-setting-export.git"
+	},
 	"version": "0.0.1",
 	"icon": "images/icon.png",
 	"publisher": "jeferwang",
