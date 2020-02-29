@@ -21,7 +21,7 @@ export const getPathInfo = function (context: ExtensionContext) {
     const USER_SETTING_PATH: string = resolve(USER_DIR_PATH, './settings.json');
     const USER_SNIPPETS_DIR_PATH: string = resolve(USER_DIR_PATH, './snippets');
 
-    [CODE_DIR_PATH, USER_DIR_PATH, USER_SETTING_PATH, USER_SNIPPETS_DIR_PATH].forEach(d => checkAndFixDir(d));
+    [CODE_DIR_PATH, USER_DIR_PATH, USER_SNIPPETS_DIR_PATH].forEach(d => checkAndFixDir(d));
 
     return {
         CODE_DIR_PATH,
