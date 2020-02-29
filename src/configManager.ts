@@ -13,6 +13,14 @@ const restoreUserSettings = function (context: ExtensionContext, userSettingData
     writeFileSync(getPathInfo(context).USER_SETTING_PATH, userSettingData);
 };
 
+const getKeyBinding = function (context: ExtensionContext) {
+    const settingsJson = readFileSync(getPathInfo(context).USER_KEYBINDING_PATH, 'utf-8');
+    return settingsJson;
+};
+const restoreKeyBinding = function (context: ExtensionContext, keyBindingData: string) {
+    writeFileSync(getPathInfo(context).USER_KEYBINDING_PATH, keyBindingData);
+};
+
 const getExtensionList = function (context: ExtensionContext) {
     const res = vscode.extensions.all
         .filter(e => !e.packageJSON.isBuiltin)
@@ -103,6 +111,9 @@ export const importSetting = async function (context: ExtensionContext): Promise
     if (data["settings.json"]) {
         restoreUserSettings(context, data["settings.json"]);
     }
+    if (data["keybindings.json"]) {
+        restoreUserSettings(context, data["keybindings.json"]);
+    }
     if (data.snippets) {
         restoreSnippets(context, data.snippets);
     }
@@ -115,6 +126,7 @@ export const importSetting = async function (context: ExtensionContext): Promise
 
 interface IJsonData {
     'settings.json'?: string;
+    'keybindings.json'?: string;
     'extensionList'?: [{ [key: string]: { [key: string]: string } }];
     'snippets'?: { [key: string]: string };
 }
