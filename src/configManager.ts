@@ -79,6 +79,7 @@ const restoreSnippets = function (context: ExtensionContext, snippets: { [key: s
 export const exportSetting = async function (context: ExtensionContext): Promise<boolean> {
     const resData = JSON.stringify({
         'settings.json': getUserSettings(context),
+        'keybindings.json': getKeyBinding(context),
         'extensionList': getExtensionList(context),
         'snippets': getSnippets(context),
     });
